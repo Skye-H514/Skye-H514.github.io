@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Project Summary · Skye Huang's Blog</title><meta name="description" content="Skye Huang
+5 March 2020
+
+Breast cancer has skyrocketed to the top of the list of most common cancer, right after for skin cancer. Around one in eight "><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.2.0"></head><body><div id="stage" class="container"><div class="row"><div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible"><div class="vertical-text site-title"><h3 tabindex="-1" class="site-title-small"><a href="/" class="a-title"></a></h3><h1 tabindex="-1" class="site-title-large"><a href="/" class="a-title">Skye Huang's Blog</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div id="site-nav" class="site-title-links"><ul><li><a href="/">Home</a></li><li><a href="/archives">Archive</a></li><li class="soc"><a href="https://github.com/Skye-H514" target="_blank" rel="noopener noreferrer"><i class="fa fa-github">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="http://example.com" rel="noopener noreferrer">Skye Huang</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div id="main-container" class="col-sm-9 col-xs-12 main-container invisible"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Project Summary</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2020-10-10</span></p><p class="post-abstract"><p><strong>Skye Huang</strong></p>
+<p><strong>5 March 2020</strong></p>
+<p class="p">
+Breast cancer has skyrocketed to the top of the list of most common cancer, right after for skin cancer. Around one in eight women will develop breast cancer in her lifetime and so does every one man in a thousand. Even though the number of people suffering from breast cancer is increasing every day, scientists still haven't figured out the cause of this disease. However, some measures have been developed to predict and prevent breast cancer before it is too late. Thus, using a data set that consists of some additional information about breast cancer, I will train a binary classification model to predict whether the cancer is benign or malignant through machine learning. Machine learning is a phrase which we refer to as the "learning styles" of a computer. It could either learn in a supervised way or an unsupervised way. In terms of the problem that I am addressing, a supervised machine learning would best fit because we have a labeled dataset. I used the dataset that contains thirty features obtained from a digitized image of a fine needle aspirate (FNA) of a breast mass, where we have 357 benign samples and 212 malignant samples.
+</p>
+
+<p class="p">
+Following the general Machine Learning Pipeline, approximately 10 data fields were chosen from the dataset, including radius, texture, perimeter, area, and so on.
+</p>
+
+<p class="p">
+The package Scikit-learn (later referred to as sk-learn) allowed me to introduce some aspect of the machine learning mechanism to my code. But, because the data set consists of too large an amount of data to comprehend in detail’ upon receiving the data, I interpreted the data through the means of data exploration, which created a big picture of trends and major points of the data. Using tools like Matplotlib and Seaborn in Python, there were graphs to visualize the data. These graphs help me see the relationships between data and thus give me ideas about how to perform my data cleaning.
+</p>
+
+<p class="p">
+Feature engineering is the process of using domain knowledge of the data to create or modify features to make machine learning algorithms work. Thus,  standardscaler, which standardizes features by removing the mean and scaling to unit variance, became essential for comparing and choosing between different features that would be most helpful for machine training. This is a process called data normalization, and it adjusts values measured on different scales to notionally common scales, makes the data comparable, and makes the model training results better. During the feature engineering process, it is also important to encode categorical features to make the data understandable to ML algorithms.
+</p>
+
+<p class="p">
+Graphs like violin plots and heat maps would provide a great graphical description of the data collected. More specifically, the split violins in the violin plot compare the distributions of each group, showing the impact of each data. On the other hand, correlation coefficients are used to measure the strength of the relationship between two variables. We can compute the correlation coefficients and plot them in a heatmap then discard high relevant features.
+</p>
+
+<p class="p">
+While diving into feature selection through graphs and tables created through the algorithms, the importance of influences of different features have shown their importance. In this case, from the plot “radius_mean distribution of benign and malignant”, it’s clear that benign and malignant have different radius_mean distribution. Therefore radius_mean can be considered to be a useful predictor for whether breast cancer is benign or malignant, from which, after examining other features of the data, area and perimeter also presented themselves to be a useful feature when differentiating the type of breast cancer. 
+</p>
+
+<p class="p">
+After choosing the appropriate features to work with, the idea of recursive feature elimination was introduced to the study. Recursive feature elimination is based on the idea to repeatedly construct a model (for example an SVM or a regression model) and choose either the best or worst performing feature (for example based on coefficients), setting the feature aside and then repeating the process with the rest of the features. This process is applied until all features in the dataset are exhausted. Features are then ranked according to when they were eliminated. As such, it is a greedy optimization for finding the best performing subset of features.
+</p>
+
+<p class="p">
+Following, the next step was to choose a model -- A machine learning model is usually a mathematical or statistical algorithm with trained parameters over a training class. While most of the models are complex, they are usually a combination of simple models or modified simple models with special techniques. Some examples of models would be linear regression, logistic regression, k-nearest neighbors algorithm (kNN), and the decision tree. At this point, we need to consider which machine learning model would perform the best.
+</p>
+
+<p class="p">
+Linear regression is a linear approach to modeling the relationship between a dependent variable and one or more independent variables. However, the label of a binary classification, which is our problem, is 0 or 1, and the linear regression can’t solve a binary classification problem and is ruled out.
+</p>
+
+<p><img src="/2020/10/10/Project-Summary/1.png" alt="1"></p>
+<p class="p">
+Logistic regression trains preprocessed data and eventually predicts its outcome. It classifies data into two and only two outputs and is used in binary classification problems like this one very often. Thus, after visualizing the prediction yielded from the logistic regression model, we tested the performance of the model, including its accuracy, precision, recall, and F-1 score of different models.
+</p>
+
+<p class="p">
+The third model is kNN, k-nearest neighbors algorithm (kNN), which is a method used for classification. The input consists of the k closest training examples in the feature space, the output is a class. An object is classified by a plurality vote of its neighbors, with the object being assigned to the class most common among its k nearest neighbors (k is a positive integer, typically small). If k = 1, then the object is simply assigned to the class of that single nearest neighbor. After running the code, the performance of the model was also recorded to be compared between the different models for the best model.
+</p>
+
+<p class="p">
+The last model we tested is the decision tree, which is a flowchart-like structure in which each internal node represents a “test” on an attribute (e.g. whether a coin flip comes up heads or tails), each branch represents the outcome of the test, and each leaf node represents a class label (decision taken after computing all attributes). The paths from the root to the leaf represent classification rules. According to the attributes of the data, decision models were made with tree structures with the additional parameter of “max_depth” to avoid overflowing and its performance was recorded.
+</p>
+
+<p class="p">
+After testing out all the options of different machine models, we need to compare and interpret the results. Cross-validation was fitting for this situation as it is a resampling procedure used to evaluate machine learning models on a limited data sample. It can also prevent overfitting and is an accountable way to evaluate the performance of a model with training data only. The next step is optimization: tuning different parameters to get better prediction results; for example, the parameter p in KNN, the parameter n_neighbors in KNN, the parameter c in logistic regression. At last, the decision tree yielded the best scores of all with an accuracy score of  0.936, a precision score of 0.894, a recall score of 0.937, and an F1-score of 0.915. 
+</p>
+
+<p class="p">
+All in all, this project used a binary classification model to predict benign and malignant breast cancers based on different features through the decision tree model. 
+</p>
+
+ <style>
+
+    .p {
+        text-indent:2em;
+        text-align:justify;
+    }
+
+ </style></p></div><div class="share"><span>Share</span>&nbsp;<span class="soc"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></span><span class="soc"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></span><span class="soc"><a target="_blank" rel="noopener" href="http://twitter.com/home?status=http://example.com/2020/10/10/Project-Summary/%20Skye Huang's Blog%20Project Summary" class="fa fa-twitter"></a></span></div><div class="pagination"><p class="clearfix"></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2020&nbsp;<a target="_blank" href="http://example.com" rel="noopener noreferrer">Skye Huang</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
